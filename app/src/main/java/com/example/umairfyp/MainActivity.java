@@ -65,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Requesting the data , since we are requesting so we'll use getters
 
-//        StringRequest stringRequest = new StringRequest(DownloadManager.Request.Method.Get, url, new Response.Listener<String>() );
-
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -81,18 +79,18 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     //get json object from response and get json
 
-                    JSONArray jsonArray = new JSONObject(response).getJSONArray("matches");
+                    JSONArray jsonArray = new JSONObject(response).getJSONArray("data");
 
                     //continue getting and setting data while array is completed
                     for (int i=0; i<jsonArray.length();i++){
 
                         try {
                             // get data
-                            String uniqueid= jsonArray.getJSONObject(i).getString("unique_id");
-                            String team1= jsonArray.getJSONObject(i).getString("team1");
-                            String team2= jsonArray.getJSONObject(i).getString("team2");
+                            String uniqueid= jsonArray.getJSONObject(i).getString("id");
+                            String team1= jsonArray.getJSONObject(i).getString("0");
+                            String team2= jsonArray.getJSONObject(i).getString("1");
                             String matchtype= jsonArray.getJSONObject(i).getString("type");
-                            String matchstatus= jsonArray.getJSONObject(i).getString("matchstarted");
+                            String matchstatus= jsonArray.getJSONObject(i).getString("status");
                             if (matchstatus.equals("success")){
                                 matchstatus="Match Started";
                             }
@@ -102,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             String datetimeGMT = jsonArray.getJSONObject(i).getString("datetimeGMT");
                             //convert date format
-                            SimpleDateFormat format1= new SimpleDateFormat("yyyy-MM-dd'T'HH:mm.SSS'Z'");
+                            SimpleDateFormat format1= new SimpleDateFormat("yyyy-MM-dd'T'HH:mm.sss'Z'");
                             format1.setTimeZone(TimeZone.getTimeZone(datetimeGMT));
                             Date date= format1.parse(datetimeGMT);
                             //convert to dd/MM/yyyy
