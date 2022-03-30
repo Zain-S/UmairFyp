@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     //for API
-    private String url= "https://api.cricapi.com/v1/matches?apikey=7d2dc5ae-9763-41fe-8f0d-00217c6a0d8f&offset=0";
+    private String url= "https://api.cricapi.com/v1/currentMatches?apikey=7d2dc5ae-9763-41fe-8f0d-00217c6a0d8f&offset=0";
 
     private RecyclerView.Adapter mAdapter;
     private List<Model> modelList;
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                //this method will be called when response from the server is recieved , so dismiss dialog first
+                //this method will be called when response from the server is received , so dismiss dialog first
                 pd.dismiss();
 
                 /*Json data is in response variable parameter of this function
@@ -87,27 +86,18 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             // get data
                             String uniqueid= jsonArray.getJSONObject(i).getString("id");
-                            String team1= jsonArray.getJSONObject(i).getString("0");
-                            String team2= jsonArray.getJSONObject(i).getString("1");
-                            String matchtype= jsonArray.getJSONObject(i).getString("type");
+                            String team1= jsonArray.getJSONObject(i).getString("teams");
+                            String team2= jsonArray.getJSONObject(i).getString("teams");
+                            String matchtype= jsonArray.getJSONObject(i).getString("matchType");
                             String matchstatus= jsonArray.getJSONObject(i).getString("status");
-                            if (matchstatus.equals("success")){
-                                matchstatus="Match Started";
-                            }
-                            else
-                            {
-                                matchstatus="Match not Started";
-                            }
-                            String datetimeGMT = jsonArray.getJSONObject(i).getString("datetimeGMT");
+
+                            String datetimeGMT = jsonArray.getJSONObject(i).getString("dateTimeGMT");
                             //convert date format
-                            SimpleDateFormat format1= new SimpleDateFormat("yyyy-MM-dd'T'HH:mm.sss'Z'");
+                            SimpleDateFormat format1= new SimpleDateFormat("yyyy-MM-dd   'T'   HH:mm. sss 'Z'");
                             format1.setTimeZone(TimeZone.getTimeZone(datetimeGMT));
-                            Date date= format1.parse(datetimeGMT);
-                            //convert to dd/MM/yyyy
-                            SimpleDateFormat format2= new SimpleDateFormat("dd/MM/yyyy");
-                            format2.setTimeZone(TimeZone.getTimeZone("GMT"));
-                            //formated datetime
-                            String datetime= format2.format(date);
+                          //  Date date= format1.parse(datetimeGMT);
+
+                            String datetime= datetimeGMT;
                             //set date
                             Model model= new Model(uniqueid,team1,team2, matchtype, matchstatus, datetime);
                             modelList.add(model);

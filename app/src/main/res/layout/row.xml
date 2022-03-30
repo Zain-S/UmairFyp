@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="0"
-                android:text="Team1"
+                android:text="Team1                   :   "
                 android:textColor="#000">
 
             </TextView>
@@ -31,6 +31,7 @@
                 android:id="@+id/team1tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#000"
                 >
             </TextView>
 
@@ -38,7 +39,7 @@
 
         <TableRow>
             <TextView
-                android:text="Team2"
+                android:text="Team2                   :   "
                 android:textColor="#000"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,14 +51,14 @@
                 android:id="@+id/team2tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:textColor="#000" >
             </TextView>
 
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="Matchtype"
+                android:text="Matchtype           :    "
                 android:textColor="#000"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,13 +70,13 @@
                 android:id="@+id/matchtypetv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:textColor="#000" >
             </TextView>
 
         </TableRow>
         <TableRow>
             <TextView
-                android:text="Match Status"
+                android:text="Match Status      :   "
                 android:textColor="#000"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,13 +88,13 @@
                 android:id="@+id/matchstatustv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:textColor="#000">
             </TextView>
 
         </TableRow>
         <TableRow>
             <TextView
-                android:text="Date"
+                android:text="Date                      :    "
                 android:textColor="#000"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -105,7 +106,7 @@
                 android:id="@+id/datetv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
+                android:textColor="#000">
             </TextView>
 
         </TableRow>
