@@ -6,23 +6,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.umairfyp.model.Data;
+import com.example.umairfyp.model.Model;
+import com.example.umairfyp.network.RetrofitClient;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     //for API
     private String url= "https://api.cricapi.com/v1/currentMatches?apikey=7d2dc5ae-9763-41fe-8f0d-00217c6a0d8f&offset=0";
 
-    private RecyclerView.Adapter mAdapter;
-    private List<Model> modelList;
+    private RecyclerView.Adapter newAdapter;
+    private List<Data> newModelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
         //set its properties
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        modelList = new ArrayList<>();
+        newModelList = new ArrayList<>();
 
         // Function to get show data from website
         loadUrlData();
@@ -61,77 +55,27 @@ public class MainActivity extends AppCompatActivity {
         pd.setMessage("Loading...");
         pd.show();
 
-
-        // Requesting the data , since we are requesting so we'll use getters
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        RetrofitClient.getInstance().getServices().getCurrentMatches().enqueue(new Callback<Model>() {
             @Override
-            public void onResponse(String response) {
-
-                //this method will be called when response from the server is received , so dismiss dialog first
-                pd.dismiss();
-
-                /*Json data is in response variable parameter of this function
-                    it may cause exception so we'll try to catch
-                 */
-
-                try {
-                    //get json object from response and get json
-
-                    JSONArray jsonArray = new JSONObject(response).getJSONArray("data");
-
-                    //continue getting and setting data while array is completed
-                    for (int i=0; i<jsonArray.length();i++){
-
-                        try {
-                            // get data
-                            String uniqueid= jsonArray.getJSONObject(i).getString("id");
-                            String team1= jsonArray.getJSONObject(i).getString("teams");
-                            String team2= jsonArray.getJSONObject(i).getString("teams");
-                            String matchtype= jsonArray.getJSONObject(i).getString("matchType");
-                            String matchstatus= jsonArray.getJSONObject(i).getString("status");
-
-                            String datetimeGMT = jsonArray.getJSONObject(i).getString("dateTimeGMT");
-                            //convert date format
-                            SimpleDateFormat format1= new SimpleDateFormat("yyyy-MM-dd   'T'   HH:mm. sss 'Z'");
-                            format1.setTimeZone(TimeZone.getTimeZone(datetimeGMT));
-                          //  Date date= format1.parse(datetimeGMT);
-
-                            String datetime= datetimeGMT;
-                            //set date
-                            Model model= new Model(uniqueid,team1,team2, matchtype, matchstatus, datetime);
-                            modelList.add(model);
-                        }
-                        catch (Exception e){
-                            Toast.makeText(MainActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    //adapter to be set to recycler  view
-                    mAdapter = new MyAdaptor(modelList, getApplicationContext());
-                    mRecyclerView.setAdapter(mAdapter);
-
-
+            public void onResponse(Call<Model> call, retrofit2.Response<Model> response) {
+                if (!response.isSuccessful()) {
+                    Log.d("debugging", response.message());
+                    return;
                 }
-                catch (Exception e){
-                    Toast.makeText(MainActivity.this, ""+e.getMessage(),Toast.LENGTH_SHORT).show();
+                if (response.body() != null){
+                    pd.dismiss();
+                    newModelList = (response.body().getData());
+                    newAdapter = new Adapter(newModelList, getApplicationContext());
+                    mRecyclerView.setAdapter(newAdapter);
                 }
-
+                else
+                    Toast.makeText(MainActivity.this, "No Response", Toast.LENGTH_SHORT).show();
             }
 
-        }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-
-                //if there is any error (failed to get response from server, get and show error message)
-                Toast.makeText(MainActivity.this, "Error :"+error.toString(), Toast.LENGTH_SHORT).show();
-
+            public void onFailure(Call<Model> call, Throwable t) {
+                Log.d("debugging", t.getMessage());
             }
         });
-
-        //enqueue the request
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
     }
 }

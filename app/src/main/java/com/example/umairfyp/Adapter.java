@@ -13,19 +13,21 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.umairfyp.model.Data;
+
 import java.util.List;
 
-public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder>{
+public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
     //variables
 
-    private List<Model> modelList;
+    private List<Data> modelList;
     private Context context;
 
     //constructor
 
 
-    public MyAdaptor(List<Model> modelList, Context context) {
+    public Adapter(List<Data> modelList, Context context) {
 
         this.modelList = modelList;
         this.context = context;
@@ -47,11 +49,11 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         //this will bind the data to viewholder from where it'll be shown in other groups
-        Model model= modelList.get(position);
-        holder.team1tv.setText(model.getTeam1());
-        holder.team2tv.setText(model.getTeam2());
-        holder.matchtypetv.setText(model.getMatchtype());
-        holder.matchstatustv.setText(model.getMatchstatus());
+        Data model= modelList.get(position);
+        holder.team1tv.setText(model.getTeams().get(0));
+        holder.team2tv.setText(model.getTeams().get(1));
+        holder.matchtypetv.setText(model.getMatchType());
+        holder.matchstatustv.setText(model.getStatus());
         holder.datetv.setText(model.getDate());
 
 
