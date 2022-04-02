@@ -2,7 +2,7 @@ package com.example.umairfyp;
 
 public class Model {
 
-    String id,team1,team2,matchtype,matchstatus,date;
+    String id,team1,team2,matchtype,matchstatus,date,score;
 
     //constructor
 
@@ -42,4 +42,6 @@ public class Model {
     public String getDate() {
         return date;
     }
+
+    public String getScore() { return score; }
 }

@@ -59,7 +59,6 @@ public class MatchDetailActivity extends AppCompatActivity {
         mTeam2Tv = findViewById(R.id.team2tv);
         mMatchStatusTv = findViewById(R.id.matchstatustv);
         mScoreTv = findViewById(R.id.scoreTv);
-        mDescriptionTv = findViewById(R.id.descriptionTv);
         mDateTv = findViewById(R.id.datetv);
 
         mDateTv.setText(date);
@@ -96,15 +95,9 @@ public class MatchDetailActivity extends AppCompatActivity {
                             String team2 = jsonObject.getString("teams");
                             String matchStatus = jsonObject.getString("status");
 
-                            if (matchStatus.equals("success")){
-                                matchStatus = "Match Started";
-                            }
-                            else {
-                                matchStatus = "Match not Started";
-                            }
                             //set this data
-                         //   mTeam1Tv.setText(team1);
-                         //   mTeam2Tv.setText(team2);
+                            mTeam1Tv.setText(team1);
+                            mTeam2Tv.setText(team2);
                             mMatchStatusTv.setText(matchStatus);
 
                             try {

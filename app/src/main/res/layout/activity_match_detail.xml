@@ -108,29 +108,6 @@
 
             </TableRow>
 
-            <TableRow>
-                <TextView
-                    android:text="Description"
-                    android:textColor="#000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/descriptionTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="#000"
-
-                    >
-                </TextView>
-
-            </TableRow>
-
-
 
             <TableRow>
                 <TextView

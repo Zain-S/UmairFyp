@@ -54,6 +54,7 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.ViewHolder>{
         holder.matchstatustv.setText(model.getMatchstatus());
         holder.datetv.setText(model.getDate());
 
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
