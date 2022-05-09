@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!--Fielding-->
+        <!--1st inning -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,41 +32,223 @@
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:text="Fielding Summary"/>
+                    android:text="1st inning"/>
 
                 <TextView
                     android:id="@+id/fieldT1TitleTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Team 1"
+                    android:text="Bat Team Name"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="#000"/>
+                <TableLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:stretchColumns="*"
+                    >
+
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:padding="10dp"
+
+                            android:text="Player Name "
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:padding="10dp"
+
+                            android:text="Score"
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="2"
+                            android:padding="10dp"
+                            android:text="Balls"
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="3"
+                            android:padding="10dp"
+                            android:text="Sr"
+                            android:textColor="#000">
+
+                        </TextView>
+
+
+                    </TableRow>
+
+
+                </TableLayout>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_column="0"
+                        android:padding="10dp"
+
+                        android:text="Player Name "
+                        android:textColor="#000">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_column="1"
+                        android:padding="10dp"
+
+                        android:text="Score"
+                        android:textColor="#000">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_column="2"
+                        android:padding="10dp"
+                        android:text="Balls"
+                        android:textColor="#000">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_column="3"
+                        android:padding="10dp"
+                        android:text="Sr"
+                        android:textColor="#000">
+
+                    </TextView>
+
+
+                </TableRow>
+
                 <TextView
                     android:id="@+id/fieldT1DetailTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RV_2ndBat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
                 <TextView
                     android:id="@+id/fieldT2TitleTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Team 1"
+                    android:text="Bowling Team name"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="#000"/>
+                <TableLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:stretchColumns="*"
+                    >
+
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:padding="10dp"
+
+                            android:text="Player Name "
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:padding="10dp"
+
+                            android:text="Score"
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="2"
+                            android:padding="10dp"
+                            android:text="Overs"
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="3"
+                            android:padding="10dp"
+                            android:text="RR"
+                            android:textColor="#000">
+
+                        </TextView>
+
+
+                    </TableRow>
+
+
+                </TableLayout>
+
                 <TextView
                     android:id="@+id/fieldT2DetailTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RV_1stBowl"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+           <!--Extras view  -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Extras"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:textColor="#000"/>
+
+
+
 
             </LinearLayout>
 
 
         </androidx.cardview.widget.CardView>
 
-        <!--Bowling-->
+        <!--2st inning -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,124 +269,173 @@
                     android:textColor="#000"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:text="Bowling Summary"/>
+                    android:text="2nd Inning"/>
 
                 <TextView
                     android:id="@+id/bowlT1TitleTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Team 1"
+                    android:text="Bat Team Name"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="#000"/>
+
+                <TableLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:stretchColumns="*"
+                    >
+
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:padding="10dp"
+
+                            android:text="Player Name "
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:padding="10dp"
+
+                            android:text="Score"
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="2"
+                            android:padding="10dp"
+                            android:text="Balls"
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="3"
+                            android:padding="10dp"
+                            android:text="Sr"
+                            android:textColor="#000">
+
+                        </TextView>
+
+
+                    </TableRow>
+
+
+                </TableLayout>
+
                 <TextView
                     android:id="@+id/bowlT1DetailTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RV_1stBat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
                 <TextView
                     android:id="@+id/bowlT2TitleTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Team 1"
+                    android:text="Bowl Team Name"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="#000"/>
+                <TableLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:stretchColumns="*"
+                    >
+
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:padding="10dp"
+
+                            android:text="Player Name "
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:padding="10dp"
+
+                            android:text="Score"
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="2"
+                            android:padding="10dp"
+                            android:text="Overs"
+                            android:textColor="#000">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="3"
+                            android:padding="10dp"
+                            android:text="RR"
+                            android:textColor="#000">
+
+                        </TextView>
+
+
+                    </TableRow>
+
+
+                </TableLayout>
+
                 <TextView
                     android:id="@+id/bowlT2DetailTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000"/>
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-        <!--Batting-->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="#fff"
-            app:cardUseCompatPadding="true"
-            app:contentPadding="5dp"
-            app:cardElevation="3dp"
-            app:cardCornerRadius="3dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RV_2ndBowl"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/design_default_color_on_primary"
-                    android:textAlignment="center"
-                    android:textColor="#000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:text="Batting Summary"/>
+                    android:layout_height="match_parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <!--Extras view  -->
 
                 <TextView
-                    android:id="@+id/batT1TitleTv"
+                    android:id="@+id/extra_2ndinning"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Team 1"
+                    android:text="Extras"
                     android:textStyle="bold"
                     android:textSize="20sp"
+                    android:padding="10dp"
                     android:textColor="#000"/>
-                <TextView
-                    android:id="@+id/batT1DetailTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"/>
-                <TextView
-                    android:id="@+id/batT2TitleTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Team 1"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textColor="#000"/>
-                <TextView
-                    android:id="@+id/batT2DetailTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"/>
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-        <!--Result-->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="#fff"
-            app:cardUseCompatPadding="true"
-            app:contentPadding="5dp"
-            app:cardElevation="3dp"
-            app:cardCornerRadius="3dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/design_default_color_on_primary"
-                    android:textAlignment="center"
-                    android:textColor="#000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:text="Results"/>
-
-                <TextView
-                    android:id="@+id/otherResultsTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"/>
-
 
             </LinearLayout>
 

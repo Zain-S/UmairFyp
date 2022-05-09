@@ -21,10 +21,6 @@ import com.android.volley.toolbox.Volley;
 public class MatchSummaryActivity extends AppCompatActivity {
 
     String url="";
-    TextView fieldT1TitleTv,fieldT1DetailTv,fieldT2TitleTv,fieldT2DetailTv,
-            bowlT1TitleTv,bowlT1DetailTv,bowlT2TitleTv,bowlT2DetailTv,
-            batT1TitleTv,batT1DetailTv,batT2TitleTv,batT2DetailTv,
-            otherResultsTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,22 +40,6 @@ public class MatchSummaryActivity extends AppCompatActivity {
         String uniqueId = intent.getStringExtra("match_id");
         url = url + uniqueId;
 
-        fieldT1TitleTv=findViewById(R.id.fieldT1TitleTv);
-        fieldT1DetailTv=findViewById(R.id.fieldT1DetailTv);
-        fieldT2TitleTv=findViewById(R.id.fieldT2TitleTv);
-        fieldT2DetailTv=findViewById(R.id.fieldT2DetailTv);
-
-        bowlT1TitleTv=findViewById(R.id.bowlT1TitleTv);
-        bowlT1DetailTv=findViewById(R.id.bowlT1DetailTv);
-        bowlT2TitleTv=findViewById(R.id.bowlT2TitleTv);
-        bowlT2DetailTv=findViewById(R.id.bowlT2DetailTv);
-
-        batT1TitleTv=findViewById(R.id.batT1TitleTv);
-        batT1DetailTv=findViewById(R.id.batT1DetailTv);
-        batT2TitleTv=findViewById(R.id.batT2TitleTv);
-        batT2DetailTv=findViewById(R.id.batT2DetailTv);
-
-        otherResultsTv=findViewById(R.id.otherResultsTv);
         //Load Data
         loadData();
 
