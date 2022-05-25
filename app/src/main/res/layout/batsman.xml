@@ -16,6 +16,7 @@
         android:layout_height="match_parent"
         android:padding="5dp"
         android:stretchColumns="*"
+
         >
 
 
@@ -65,6 +66,31 @@
 
 
         </TableRow>
+        <TableRow>
+            <!--for Cather/Stump-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:padding="10dp"
+                android:textColor="#000">
+
+            </TextView>
+
+            <!--For name of bowler-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="10dp"
+                android:textColor="#000">
+
+            </TextView>
+
+        </TableRow>
+
+
 
 
     </TableLayout>

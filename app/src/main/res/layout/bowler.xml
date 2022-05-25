@@ -20,42 +20,43 @@
 
 
         <TableRow>
-
+<!--PLayer name-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="0"
                 android:padding="10dp"
-
-                android:text="Player Name "
                 android:textColor="#000">
 
             </TextView>
+            <!--Score conceded by bowler-->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:padding="10dp"
-
-                android:text="Score"
                 android:textColor="#000">
 
             </TextView>
+            <!--Overs by bowler-->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="2"
                 android:padding="10dp"
-                android:text="Overs"
                 android:textColor="#000">
 
             </TextView>
+
+            <!--Run rate of bowler score/overs-->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:padding="10dp"
-                android:text="RR"
                 android:textColor="#000">
 
             </TextView>
