@@ -21,8 +21,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
     //variables
 
-    private List<Data> modelList;
-    private Context context;
+    private final List<Data> modelList;
+    private final Context context;
 
     //constructor
 
