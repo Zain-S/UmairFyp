@@ -40,7 +40,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         //this method will be called whenever our viewholder will be created
         //inflate the layout row.xml
 
-        View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row, viewGroup , false);
+        View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_match, viewGroup , false);
 
         return new ViewHolder(view);
     }
